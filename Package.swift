@@ -13,6 +13,6 @@ let package = Package(
           targets: ["MSAL"]),
   ],
   targets: [
-      .binaryTarget(name: "MSAL", url: "https://github.com/ameyapat/pipeline-test/releases/download/25/MSAL.zip", checksum: "abcdefabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234")
+      .binaryTarget(name: "MSAL", url: "https://github.com/ameyapat/pipeline-test/releases/download/27/MSAL.zip", checksum: "abcdefabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234")
   ]
 )
