@@ -20,7 +20,7 @@ resources:
   repositories:
   - repository: msalRepository
     type: github
-    endpoint: 'GitHub for AzureAD and Azure-Samples (as aadidgit service)'
+    endpoint: 'ameyapat'
     name: $(repositoryName)
     ref: $(repositoryBranch)
 
