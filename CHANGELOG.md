@@ -3,3 +3,4 @@
 # Test changelog
 
 Added release task
+test
