@@ -27,6 +27,7 @@ resources:
 jobs:
 - job: PipelineTestJob
   displayName: Pipeline Test for trigger check
+  condition: and(eq(variables.isMain, true),ne(variables['Build.Reason'], 'PullRequest'))
   pool:
     vmImage: 'macOS-latest'
     timeOutInMinutes: 20
