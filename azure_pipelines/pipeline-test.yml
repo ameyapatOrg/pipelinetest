@@ -3,8 +3,6 @@ variables:
     value: 'ameyapat/pipeline-test'
   - name: 'repositoryBranch' # Name of the branch where version number will be updated for files that contain version number.
     value: 'master'
-  - name: 'GithubServiceConnection' # Service connection name used to connect Github repository
-    value: 'MSAL ObjC Service Connection'
   - name: 'isMain'
     value: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
 
@@ -40,19 +38,6 @@ jobs:
     submodules: true
     fetchDepth: 1
     persistCredentials: true
-  - task: GitHubRelease@1
-    displayName: Generate MSAL Github Release
-    inputs:
-      gitHubConnection: '$(GithubServiceConnection)'
-      repositoryName: '$(repositoryName)'
-      action: 'create'
-      target: '$(repositoryBranch)'
-      tagSource: 'userSpecifiedTag'
-      tag: 'test-tag'
-      title: 'Test Title'
-      releaseNotesFilePath: 'README.md'
-      changeLogCompareToRelease: 'lastFullRelease'
-      changeLogType: 'issueBased'
   - task: Bash@3
     displayName: git push
     inputs:
