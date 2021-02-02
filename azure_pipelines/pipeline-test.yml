@@ -1,6 +1,6 @@
 variables:
   - name: 'repositoryName' # Name of the repository
-    value: 'ameyapat/pipeline-test'
+    value: 'ameyapatOrg/pipelinetest'
   - name: 'repositoryBranch' # Name of the branch where version number will be updated for files that contain version number.
     value: 'master'
   - name: 'isMain'
