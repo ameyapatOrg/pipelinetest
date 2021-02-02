@@ -14,7 +14,7 @@ trigger:
     include:
     - CHANGELOG.md
 
-pr: none
+#pr: none
 
 resources:
   repositories:
