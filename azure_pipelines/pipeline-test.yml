@@ -16,6 +16,8 @@ trigger:
     include:
     - CHANGELOG.md
 
+pr: none
+
 resources:
   repositories:
   - repository: msalRepository
