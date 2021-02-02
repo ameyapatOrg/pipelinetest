@@ -81,3 +81,14 @@ jobs:
       failOnStderr: true
       noProfile: false
       noRc: false
+      
+  - task: GitHubRelease@1
+    inputs:
+      gitHubConnection: 'ameyapat'
+      repositoryName: '$(Build.Repository.Name)'
+      action: 'create'
+      target: '$(Build.SourceVersion)'
+      tagSource: 'gitTag'
+      title: 'TEST'
+      changeLogCompareToRelease: 'lastFullRelease'
+      changeLogType: 'issueBased'
