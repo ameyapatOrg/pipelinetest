@@ -45,6 +45,7 @@ jobs:
       script: |
         rm -rf release-notes.md
         rm -rf cc-release-notes.md
+        git config --list
         git fetch origin $(repositoryBranch) -q
         git checkout FETCH_HEAD -q
         git checkout -b update-package -q
