@@ -45,6 +45,8 @@ jobs:
       script: |
         rm -rf release-notes.md
         rm -rf cc-release-notes.md
+        git config --global user.email "ameya.v.patil@gmail.com"
+        git config --global user.name "ameyaPipeline"
         git config --list
         git fetch origin $(repositoryBranch) -q
         git checkout FETCH_HEAD -q
@@ -74,7 +76,7 @@ jobs:
         git add Package.swift
         author=$(git log -1 --pretty=format:'%an <%ae>')
         echo "Commiting as ${author}"
-        echo "$(Build.RequestedFor) <$(Build.RequestedForEmail)>"
+        echo "$(Build.RequestedFor) <$(Build.RequestedForId)>"
         git commit -a -m "Updating MSAL framework checksum & url [skip ci]" -q --author="${author}" -q
         git checkout $(repositoryBranch) -q
         git merge update-package -q
