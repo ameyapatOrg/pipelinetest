@@ -45,9 +45,9 @@ jobs:
       script: |
         rm -rf release-notes.md
         rm -rf cc-release-notes.md
-        git fetch origin $(repositoryBranch)
-        git checkout FETCH_HEAD
-        git checkout -b update-package
+        git fetch origin $(repositoryBranch) -q
+        git checkout FETCH_HEAD -q
+        git checkout -b update-package -q
         if [ ! -e Package.swift ]; then
             echo -e "// swift-tools-version:5.3\n" >> Package.swift
             cat >> Package.swift << EOF
@@ -70,13 +70,13 @@ jobs:
         EOF
         fi
         perl -i -pe's/releases\/download\/[0-9a-zA-Z\.].+\//releases\/download\/$(Build.BuildId)\//' Package.swift
-        git add Package.swift
+        git add Package.swift -q
         author=$(git log -1 --pretty=format:'%an <%ae>')
-        git commit -a -m "Updating MSAL framework checksum & url [skip ci]" -q --author="${author}"
-        git checkout $(repositoryBranch)
-        git merge update-package
+        git commit -a -m "Updating MSAL framework checksum & url [skip ci]" -q --author="${author}" -q
+        git checkout $(repositoryBranch) -q
+        git merge update-package -q
         git push origin $(repositoryBranch)
-        git branch -d update-package
+        git branch -d update-package -q
       workingDirectory: '$(Build.SourcesDirectory)'
       failOnStderr: true
       noProfile: false
