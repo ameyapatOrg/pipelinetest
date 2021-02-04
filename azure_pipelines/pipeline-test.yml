@@ -75,6 +75,7 @@ jobs:
         perl -i -pe's/releases\/download\/[0-9a-zA-Z\.].+\//releases\/download\/$(Build.BuildId)\//' Package.swift
         git add Package.swift
         author=$(git log -1 --pretty=format:'%an <%ae>')
+        echo "Source branch $(Build.SourceBranchName) $(Build.SourceBranch)"
         echo "Commiting as ${author}"
         echo "$(Build.RequestedFor) <$(Build.RequestedForId)>"
         git commit -a -m "Updating MSAL framework checksum & url [skip ci]" -q --author="${author}" -q
