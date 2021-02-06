@@ -89,10 +89,10 @@ jobs:
         echo "Commiting as ${author}"
         #ssh -T git@github.com
         git commit -a -m "Updating MSAL framework checksum & url [skip ci]" -q --author="${author}"
-        git checkout $(repositoryBranch) -q
-        git merge update-package -q
+        git checkout $(repositoryBranch)
+        git merge update-package
         git push $(repositoryBranch)
-        git branch -d update-package -q
+        git branch -d update-package
       workingDirectory: '$(Build.SourcesDirectory)'
       failOnStderr: true
       noProfile: false
