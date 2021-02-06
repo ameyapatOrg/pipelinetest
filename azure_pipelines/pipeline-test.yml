@@ -57,7 +57,7 @@ jobs:
         rm -rf cc-release-notes.md
         git config --global user.email "ameya.v.patil@gmail.com"
         git config --global user.name "ameyaPipeline"
-        git remote set-url origin ssh://git@github.com:ameyapatOrg/pipelinetest.git
+        git remote set-url origin git@github.com:ameyapatOrg/pipelinetest.git
         git remote -v
         git config --list
         git fetch origin $(repositoryBranch)
