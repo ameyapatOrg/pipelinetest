@@ -55,6 +55,7 @@ jobs:
       script: |
         rm -rf release-notes.md
         rm -rf cc-release-notes.md
+        ssh-keyscan github.com | tee -a ~/.ssh/known_hosts
         ssh -T git@github.com
         git config --global user.email "ameya.v.patil@gmail.com"
         git config --global user.name "ameyaPipeline"
