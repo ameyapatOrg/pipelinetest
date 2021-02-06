@@ -41,8 +41,8 @@ jobs:
 
   - task: InstallSSHKey@0
     inputs:
-      knownHostsEntry: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=='
-      sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDI6UC8+khkEQ5q2TGpeXgRZKFcvGgWHMZQT5a0AJPeWdeT9EkYZWNBkRm2VCnsxGCn7hlGFEyu2WAPalrlUipW0fJoo5Y9Da2VqvQIC0rnn4Ph9mtvUQl9BdciH7G37miRNVc2hRFnYzFxhrR6aH0k4GScXrvLmrW4pG6Tn1pabXsxfYFhJ4mtpr3UWmhui1MVAbGp0xftLxojsRqgRU+BwCJBTEEkIUioFdAhvyMVFkJG8xpqMK3xDgcksb+a9CgTGL/1FoeQ9XKg0f8brMKKhuA8LTJzP/y86UP7WXgIKSzFJMN+Gi8ljvjPPBT2mvhbnwJV3YDkca2T7IzcNA1C1kLu3bn0/doy/cHj22FL+H7Z8uY6kyz7S+om9VfftiFpE6VB/+YaACCUna/Go0FKRtqpzNi4uOc0tCHrdZv32l8OXom8rvlfP0kGQBeJcwC2lYyy1W8Kl7fZIpFILPLXe8HWgGs0dPevDfYEjWRJxRqpevr9/2JTxkCyLU3+kq8='
+      knownHostsEntry: 'AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=='
+      sshPublicKey: 'AAAAB3NzaC1yc2EAAAADAQABAAABgQDI6UC8+khkEQ5q2TGpeXgRZKFcvGgWHMZQT5a0AJPeWdeT9EkYZWNBkRm2VCnsxGCn7hlGFEyu2WAPalrlUipW0fJoo5Y9Da2VqvQIC0rnn4Ph9mtvUQl9BdciH7G37miRNVc2hRFnYzFxhrR6aH0k4GScXrvLmrW4pG6Tn1pabXsxfYFhJ4mtpr3UWmhui1MVAbGp0xftLxojsRqgRU+BwCJBTEEkIUioFdAhvyMVFkJG8xpqMK3xDgcksb+a9CgTGL/1FoeQ9XKg0f8brMKKhuA8LTJzP/y86UP7WXgIKSzFJMN+Gi8ljvjPPBT2mvhbnwJV3YDkca2T7IzcNA1C1kLu3bn0/doy/cHj22FL+H7Z8uY6kyz7S+om9VfftiFpE6VB/+YaACCUna/Go0FKRtqpzNi4uOc0tCHrdZv32l8OXom8rvlfP0kGQBeJcwC2lYyy1W8Kl7fZIpFILPLXe8HWgGs0dPevDfYEjWRJxRqpevr9/2JTxkCyLU3+kq8='
       sshKeySecureFile: 'id_rsa'
       addEntryToConfig: true
       configHostAlias: 'ameyaOrgKey'
@@ -55,6 +55,7 @@ jobs:
       script: |
         rm -rf release-notes.md
         rm -rf cc-release-notes.md
+        ssh -T git@github.com
         git config --global user.email "ameya.v.patil@gmail.com"
         git config --global user.name "ameyaPipeline"
         git remote set-url origin git@github.com:ameyapatOrg/pipelinetest.git
